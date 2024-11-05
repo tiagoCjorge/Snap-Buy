@@ -1,0 +1,569 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+<!-- molla/index-13.html  22 Nov 2019 09:59:06 GMT -->
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Snap Buy</title>
+    <meta name="keywords" content="SNAP BUY">
+    <meta name="description" content="E-Commerce">
+    <meta name="author" content="Tiago Jorge">
+    <!-- Favicon -->
+    <link rel="apple-touch-icon" sizes="180x180" href="public/images/logo_pequeno.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="public/images/logo_pequeno.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="public/images/logo_pequeno.png">
+    <link rel="manifest" href="public/images/icons/site.html">
+    <link rel="mask-icon" href="public/images/icons/safari-pinned-tab.svg" color="#666666">
+    <link rel="shortcut icon" href="public/images/logo_pequeno.png">
+    <meta name="apple-mobile-web-app-title" content="Snap Buy">
+    <meta name="application-name" content="Snap Buy">
+    <meta name="msapplication-TileColor" content="#cc9966">
+    <meta name="msapplication-config" content="public/images/icons/browserconfig.xml">
+    <meta name="theme-color" content="#ffffff">
+    <link rel="stylesheet" href="public/vendor/line-awesome/line-awesome/line-awesome/css/line-awesome.min.css">
+    <!-- Plugins CSS File -->
+    <link rel="stylesheet" href="public/css/bootstrap.min.css">
+    <link rel="stylesheet" href="public/css/plugins/owl-carousel/owl.carousel.css">
+    <link rel="stylesheet" href="public/css/plugins/magnific-popup/magnific-popup.css">
+    <link rel="stylesheet" href="public/css/plugins/jquery.countdown.css">
+    <!-- Main CSS File -->
+    <link rel="stylesheet" href="public/css/style.css">
+    <link rel="stylesheet" href="public/css/skins/skin-demo-13.css">
+    <link rel="stylesheet" href="public/css/demos/demo-13.css">
+</head>
+
+<body>
+    <div class="page-wrapper">
+        <header class="header header-10 header-intro-clearance">
+         
+
+            <div class="header-middle">
+                <div class="container">
+                    <div class="header-left">
+                        <button class="mobile-menu-toggler">
+                            <span class="sr-only">Menu</span>
+                            <i class="icon-bars"></i>
+                        </button>
+                        
+                        <a href="/" class="logo">
+                            <img src="public/images/demos/demo-13/logo2.png" alt="SnapbBuy Logo" width="105" height="25">
+                        </a>
+                    </div><!-- End .header-left -->
+
+                    <div class="header-center">
+                      
+                    </div>
+
+                    <div class="header-right">
+                        <div class="header-dropdown-link">
+                           
+                           
+                            <a href="/favoritos" class="wishlist-link">
+                                <i class="icon-heart-o"></i>
+                                <%if(nrFav>0){%>
+                                    <span class="wishlist-count"><%=nrFav%></span>
+                                   <%}%>
+                                <span class="wishlist-txt">Favoritos</span>
+                            </a>
+                
+                            <div class="dropdown cart-dropdown">
+                                <a href="/cart" class="dropdown-toggle" >
+                                    <i class="icon-shopping-cart"></i>
+                                    <%if(nrProd>0){%>
+                                    <span class="cart-count"><%=nrProd%></span>
+                                   <%}%>
+                                    <span class="cart-txt">Carrinho</span>
+                                </a>
+                        
+                            
+                                <a href="/dashboard" class="wishlist-link">
+                                      <i class="icon-user"></i>
+                                      <span class="wishlist-txt">Conta</span>
+                                  </a>
+                            </div>
+                            
+                        </div>
+
+                       
+
+
+                    </div><!-- End .header-right -->
+                </div><!-- End .container -->
+            </div><!-- End .header-middle -->
+
+            <div class="header-bottom sticky-header">
+                <div class="container">
+                    <div class="header-left">
+                        <div class="dropdown category-dropdown show is-on" data-visible="true">
+                            <a href="#" class="dropdown-toggle" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true" data-display="static" title="Categorias">
+                                Categoiras
+                            </a>
+
+                            <div class="dropdown-menu show">
+                                <!--preencher menu-->
+                                <nav class="side-nav">
+                                    <ul class="menu-vertical sf-arrows">
+                                        <% let categoria = 0;%>
+                                        <%while (categoria<categorias.length){%>
+                                        <li class="megamenu-container">
+                                            <a class="sf-with-ul" href="/cat=<%=categorias[categoria].id%>"><%=categorias[categoria].nome%>></a>
+
+                                            <div class="megamenu" Style="width: 13vw;">
+                                                <div class="row no-gutters" >
+                                                    <div >
+                                                        <div>
+                                                                <div style="width:13vw;">
+                                                                    <ul style="padding-top: 1vh; width: 100%;">   
+                                                                        <%let subcat =0;%>
+                                                                        <%while(subcat<subcats.length){%>
+                                                                           
+                                                                            <%if(subcats[subcat].categoria_id==categorias[categoria].id){%>
+                                                                                <li style="text-align: left;">
+                                                                                    
+                                                                                <a href="/subcat=<%=subcats[subcat].id%>">
+                                                                                    <svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" fill="currentColor" class="bi bi-dot" viewBox="0 0 16 16">
+                                                                                        <path d="M8 9.5a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3"/>
+                                                                                      </svg>
+                                                                                    <%=subcats[subcat].nome%>
+                                                                                </a>
+                                                                            </li>
+                                                                            <%}%>
+                                                                        <%subcat+=1}%>
+                                                                        
+                                                                    </ul>
+                                                                </div><!-- End .col-md-6 -->
+                                                        </div><!-- End .menu-col -->
+                                                    </div><!-- End .col-md-8 -->
+                                                </div><!-- End .row -->
+                                            </div><!-- End .megamenu -->
+                                        </li>
+                                        <% categoria+=1}%>
+                                    </ul><!-- End .menu-vertical -->
+                                </nav><!-- End .side-nav -->
+                            </div><!-- End .dropdown-menu -->
+                        </div><!-- End .category-dropdown -->
+                    </div><!-- End .col-lg-3 -->
+                    <div class="header-center"  style="display:flex;justify-content: space-between;">
+                        <nav class="main-nav">
+                            <ul class="menu sf-arrows">
+                                <%if(login == true){%>
+                                <li>
+                                    <a href="#edit-modal" data-toggle="modal" >Junta-te á Snap Buy!</a>
+
+                                   
+                                </li>
+                               <%}%>
+                                <li>
+                                    <a href="/faq">FAQs</a>
+
+                                </li>
+                                <li>
+                                    <a href="/sobre">Sobre Nós</a>
+
+                                </li>
+                               
+                            </ul><!-- End .menu -->
+                        </nav><!-- End .main-nav -->
+                    </div><!-- End .col-lg-9 -->
+                    <div class="header-right">
+                        <ul class="menu sf-arrows">
+                          
+                            </ul>
+                    </div>
+                </div><!-- End .container -->
+            </div><!-- End .header-bottom -->
+        </header><!-- End .header -->
+
+        <main class="main">
+            <div class="intro-slider-container">
+                <div class="intro-slider owl-carousel owl-simple owl-nav-inside" data-toggle="owl" data-owl-options='{
+                        "nav": false,
+                        "responsive": {
+                            "992": {
+                                "nav": true
+                            }
+                        }
+                    }'>
+                    <div class="intro-slide" style="background-image: url(public/images/demos/demo-13/slider/BANNER2.jpg);">
+                       
+                    </div><!-- End .intro-slide -->
+
+                    <div class="intro-slide" style="background-image: url(public/images/demos/demo-13/slider/banner.jpg);">
+                        
+                    </div><!-- End .intro-slide -->
+                </div><!-- End .owl-carousel owl-simple -->
+
+                <span class="slider-loader"></span><!-- End .slider-loader -->
+            </div><!-- End .intro-slider-container -->
+
+            <div class="mb-4"></div><!-- End .mb-2 -->
+
+            <div class="container">
+                <h2 class="title text-center mb-2">Sugestões de Categorias</h2><!-- End .title -->
+
+                <div class="cat-blocks-container">
+                    <div class="row">
+                      
+                         
+
+                        <div class="col-6 col-sm-4 col-lg-2">
+                            <a href="/cat=3" class="cat-block">
+                                <figure>
+                                    <span>
+                                        <img src="public/images/demos/demo-13/cats/1.jpg" alt="Category image">
+                                    </span>
+                                </figure>
+
+                                <h3 class="cat-block-title">Informática</h3><!-- End .cat-block-title -->
+                            </a>
+                        </div><!-- End .col-sm-4 col-lg-2 -->
+                        <div class="col-6 col-sm-4 col-lg-2">
+                            <a href="/cat=2" class="cat-block">
+                                <figure>
+                                    <span>
+                                        <img src="public/images/demos/demo-13/cats/3.jpg" alt="Category image">
+                                    </span>
+                                </figure>
+
+                                <h3 class="cat-block-title">Telemóveis e Acessórios</h3><!-- End .cat-block-title -->
+                            </a>
+                        </div><!-- End .col-sm-4 col-lg-2 -->
+                        <div class="col-6 col-sm-4 col-lg-2">
+                            <a href="/cat=4" class="cat-block">
+                                <figure>
+                                    <span>
+                                        <img src="public/images/demos/demo-13/cats/4.jpg" alt="Category image">
+                                    </span>
+                                </figure>
+
+                                <h3 class="cat-block-title">TV e Som</h3><!-- End .cat-block-title -->
+                            </a>
+                        </div><!-- End .col-sm-4 col-lg-2 -->
+                        <div class="col-6 col-sm-4 col-lg-2">
+                            <a href="/cat=6" class="cat-block">
+                                <figure>
+                                    <span>
+                                        <img src="public/images/demos/demo-13/cats/7.png" alt="Category image">
+                                    </span>
+                                </figure>
+
+                                <h3 class="cat-block-title">Fotografia e Vídeo</h3><!-- End .cat-block-title -->
+                            </a>
+                        </div><!-- End .col-sm-4 col-lg-2 -->
+                        <div class="col-6 col-sm-4 col-lg-2">
+                            <a href="/cat=5" class="cat-block">
+                                <figure>
+                                    <span>
+                                        <img src="public/images/demos/demo-13/cats/8.jpg" alt="Category image">
+                                    </span>
+                                </figure>
+
+                                <h3 class="cat-block-title">Jogos e Brinquedos</h3><!-- End .cat-block-title -->
+                            </a>
+                        </div><!-- End .col-sm-4 col-lg-2 -->
+                        <div class="col-6 col-sm-4 col-lg-2">
+                            <a href="/cat=1" class="cat-block">
+                                <figure>
+                                    <span>
+                                        <img src="public/images/demos/demo-13/cats/9.jpeg" alt="Category image">
+                                    </span>
+                                </figure>
+
+                                <h3 class="cat-block-title">Eletrodomésticos</h3><!-- End .cat-block-title -->
+                            </a>
+                        </div><!-- End .col-sm-4 col-lg-2 -->
+
+                      
+                    </div><!-- End .row -->
+                  
+                </div><!-- End .cat-blocks-container -->
+            </div><!-- End .container -->
+
+            <div class="mb-2"></div><!-- End .mb-2 -->
+
+            
+
+            <div class="mb-3"></div><!-- End .mb-3 -->
+            
+            <div class="bg-light pt-3 pb-5">
+                <div class="container">
+                    <h2 class="title text-center mb-2">Veja os Produtos Mais Recentes</h2><!-- End .title -->
+                    <div class="row">
+                        <!--Preenche os ultimos produtos dinamicamente-->
+                        <% let produtos = 0;%>
+                        <%while(produtos<ultimosProdutos.length){ %>
+                        <div class="col-6 col-md-4 col-xl-3">
+                            <div class="product">
+                                <figure class="product-media">
+                                    <%if (ultimosProdutos[produtos].desconto>0){%>
+                                    <span class="product-label label-top">-<%=ultimosProdutos[produtos].desconto%>%</span>
+                                    <%}else{%>
+                                        <span class="product-label label-new">Novo</span>
+                                    <%}%>
+                                    <a href="/produto=<%=ultimosProdutos[produtos].id%>">
+                                        <img src="/public/images/produtos/<%=ultimosProdutos[produtos].foto%>" alt="Imagem do Produto" class="product-image" style="aspect-ratio: 4/3; width: 100%;">
+                                    </a>
+                                    <div class="product-action-vertical">
+                                        <a href="/favoritos=<%=ultimosProdutos[produtos].id%>" class="btn-product-icon btn-wishlist btn-expandable"><span>Adicionar aos Favoritos</span></a>
+                                    </div><!-- End .product-action-vertical -->
+
+                                    <div class="product-action" style="display:flex;" >
+                                    <form action="/carrinho" method="POST" id="addCarrinho<%=produtos%>" style="flex:1">
+                                        <a style="  flex: 1; width: 100%;height: 100%;display: flex; justify-content: center;align-items: center;" href="javascript:;"  onclick="document.forms['addCarrinho<%=produtos%>'].submit()" class="btn-product btn-cart" title="Adicionar ao Carrinho"><span>Adicionar ao Carrinho</span></a>
+                                        <input type="text" hidden  id="idProd<%=produtos%>" name="idProd<%=produtos%>" value="<%=ultimosProdutos[produtos].id%>">
+                                    </form> 
+                                    </div><!-- End .product-action -->
+                                </figure><!-- End .product-media -->
+                                <div class="product-body">
+                                    <div class="product-cat">
+                                        <a href="/subcat=<%=ultimosProdutos[produtos].subcategoria_id%>">
+                                            <%for(let i =0;i<subcats.length;i++){%>
+                                                <%if(ultimosProdutos[produtos].subcategoria_id == subcats[i].id){%>
+                                                    <%=subcats[i].nome%>
+                                            <%}}%>
+                                            </a>
+                                    </div><!-- End .product-cat -->
+                                    <h3 class="product-title"><a href="product.html"><%=ultimosProdutos[produtos].nome%></a></h3><!-- End .product-title -->
+                                    <div class="product-price">
+                                        <%if(ultimosProdutos[produtos].desconto>0){%>
+                                            <span class="new-price"><%=ultimosProdutos[produtos].preco - ultimosProdutos[produtos].preco * (ultimosProdutos[produtos].desconto/100) %>€</span>  
+                                            <span class="old-price" style="text-decoration: line-through;"><%=ultimosProdutos[produtos].preco%>€</span>
+                                        <%}else{%>
+                                            <%=ultimosProdutos[produtos].preco%>€
+                                        <%}%>
+                                    </div><!-- End .product-price -->
+                                </div><!-- End .product-body -->
+                            </div><!-- End .product -->
+                        </div><!-- End .col-sm-6 col-md-4 col-xl-3 -->
+                        <% produtos+=1}%>
+                    </div><!-- End .row -->
+                </div><!-- End .container -->
+            </div><!-- End .bg-light pt-5 pb-5 -->
+        </main><!-- End .main -->
+
+        <footer class="footer footer-2">
+           
+
+            <div class="footer-middle border-0">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-sm-12 col-lg-6">
+                            <div class="widget widget-about">
+                                <!-- Aqui1-->
+                                <img src="public/images/demos/demo-13/logo2.png" alt="SnapbBuy Logo" width="200" height="100">
+
+                                <!--Aqui1-->
+                                <div class="widget-about-info">
+                                    <div class="row">
+                                        <div class="col-sm-6 col-md-4">
+                                            <span class="widget-about-title">Tem uma duvida?</span>
+                                            <a href="tel:+351960208974">+351960208974</a>
+                                        </div><!-- End .col-sm-6 -->
+                                      
+                                    </div><!-- End .row -->
+                                </div><!-- End .widget-about-info -->
+                            </div><!-- End .widget about-widget -->
+                        </div><!-- End .col-sm-12 col-lg-3 -->
+                        <!-- Aqui 3-->
+                        <div class="col-sm-4 col-lg-2">
+                         
+                        </div><!-- End .col-sm-64 col-lg-3 -->
+                        <div class="col-sm-4 col-lg-2">
+                            <div class="widget">
+                                <h4 class="widget-title">Informação</h4><!-- End .widget-title -->
+
+                                <ul class="widget-list">
+                                    <li><a href="/sobre">Sobre Nós</a></li>
+                                    <li><a href="/">Pagina Principal</a></li>
+                                    <li><a href="/faq">FAQ</a></li>
+                                    <li><a href="/registar">Entrar/Registar</a></li>
+                                </ul><!-- End .widget-list -->
+                            </div><!-- End .widget -->
+                        </div><!-- End .col-sm-4 col-lg-3 -->
+
+                        <div class="col-sm-4 col-lg-2">
+                            <div class="widget">
+                                <h4 class="widget-title">Apoio ao Cliente</h4><!-- End .widget-title -->
+
+                                <ul class="widget-list">
+                                    <li><a href="/faq#faqPagamentos">Metedos de pagamento</a></li>
+                                    <li><a href="/faq#faqEncmPergunta3">Politica de devoluções</a></li>
+                                    <li><a href="/faq#faqEncmPergunta3">Devoluções</a></li>
+                                    <li><a href="/faq#faqEncomendas">Encomendas</a></li>
+                                    <li><a href="/faq#faqInfoPergunta3">Taxas</a></li>
+                                    <li><a href="/faq#faqEncmPergunta2">Atrasos</a></li>
+                                </ul><!-- End .widget-list -->
+                            </div><!-- End .widget -->
+                        </div><!-- End .col-sm-4 col-lg-3 -->
+
+                        
+                    </div><!-- End .row -->
+                </div><!-- End .container -->
+            </div><!-- End .footer-middle -->
+                        <!-- Aqui 3-->
+
+            <div class="footer-bottom">
+                <div class="container" style="display:flex;justify-content: center;">
+                    <p class="footer-copyright">Copyright © 2024 SnapBuy. Todos os direitos reservados.</p><!-- End .footer-copyright -->
+                </div><!-- End .container -->
+            </div><!-- End .footer-bottom -->
+        </footer><!-- End .footer -->
+    </div><!-- End .page-wrapper -->
+    <button id="scroll-top" title="Back to Top"><i class="icon-arrow-up"></i></button>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu-overlay"></div><!-- End .mobil-menu-overlay -->
+
+    <div class="mobile-menu-container mobile-menu-light">
+        <div class="mobile-menu-wrapper">
+            <span class="mobile-menu-close"><i class="icon-close"></i></span>
+            
+
+            <ul class="nav nav-pills-mobile nav-border-anim" role="tablist">
+                <li class="nav-item">
+                    <a class="nav-link active" id="mobile-menu-link" data-toggle="tab" href="#mobile-menu-tab" role="tab" aria-controls="mobile-menu-tab" aria-selected="true">Menu</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" id="mobile-cats-link" data-toggle="tab" href="#mobile-cats-tab" role="tab" aria-controls="mobile-cats-tab" aria-selected="false">Categorias</a>
+                </li>
+            </ul>
+
+            <div class="tab-content">
+                <div class="tab-pane fade show active" id="mobile-menu-tab" role="tabpanel" aria-labelledby="mobile-menu-link">
+                    <nav class="mobile-nav">
+                        <ul class="mobile-menu">
+                            <%if(login == true){%>
+                            <li>
+                                <a href="#edit-modal" data-toggle="modal" >Junta-te á Snap Buy!</a>
+
+                               
+                            </li>
+                           <%}%>
+                            <li>
+                                <a href="/faq">FAQs</a>
+
+                            </li>
+                            <li>
+                                <a href="/sobre">Sobre Nós</a>
+
+                            </li>
+                           
+                        </ul><!-- End .menu -->
+                    </nav><!-- End .mobile-nav -->
+                </div><!-- .End .tab-pane -->
+                <div class="tab-pane fade" id="mobile-cats-tab" role="tabpanel" aria-labelledby="mobile-cats-link">
+                    <nav class="mobile-cats-nav">
+                        <ul class="mobile-cats-menu">
+                            <%let i = 0;%>
+                            <%let cat = categorias;%>
+                            <%while(i<cat.length){%>
+                            <li><a class="mobile-cats-lead" href="/cat=<%=cat[i].id%>"><%=cat[i].nome%></a></li>
+                            <%i+=1}%>
+                        </ul><!-- End .mobile-cats-menu -->
+                    </nav><!-- End .mobile-cats-nav -->
+                </div><!-- .End .tab-pane -->
+            </div><!-- End .tab-content -->
+
+        </div><!-- End .mobile-menu-wrapper -->
+    </div><!-- End .mobile-menu-container -->
+
+    <div class="modal fade" id="edit-modal" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true"><i class="icon-close"></i></span>
+                    </button>
+
+                    <div class="form-box">
+                        <div class="form-tab">
+                            <ul class="nav nav-pills nav-fill" role="tablist">
+                                <li class="nav-item">
+                                    <a class="nav-link active" id="edit-tab" data-toggle="tab"  role="tab" aria-controls="signin" aria-selected="true">Formulário de Inscrição</a>
+                                </li>
+                            </ul>
+                            <div class="tab-content" id="tab-content-5">
+                                <div class="tab-pane fade show active" id="edit" role="tabpanel" aria-labelledby="edit-tab">
+                                    <form action="/pedidos" method="POST">
+                                        <div class="form-group">
+                                            <label for="emailEmp" >Email da Empresa</label>
+                                            <input type="email" class="form-control" id="emailEmp" name="emailEmp"  required>
+                                       </div><!-- End .form-group -->
+                                        <div class="form-group">
+                                            <div class="row">
+                                                <div class="col-sm-6">
+                                                    <label for="nomeEmp">Nome da Empresa</label>
+                                                    <input type="text" class="form-control" id="nomeEmp" name="nomeEmp"  required>
+                                                </div><!-- End .col-sm-6 -->
+                                                <div class="col-sm-6">
+                                                    <label for="cidadeEmp" >Cidade</label>
+                                                    <input type="text" class="form-control" id="cidadeEmp" name="cidadeEmp"  required>
+                                                </div><!-- End .col-sm-6 -->
+                                            </div><!-- End .row -->
+                                        </div><!-- End .form-group -->
+                                        <div class="form-group">
+                                            <div class="row">
+                                                <div class="col-sm-6">
+                                                    <label for="ruaEmp">Rua</label>
+                                                    <input type="text" class="form-control" id="ruaEmp" name="ruaEmp"  required>
+                                                </div><!-- End .col-sm-6 -->
+            
+                                                <div class="col-sm-6">
+                                                    <label for="nrEmp" >Nº</label>
+                                                    <input type="text" class="form-control" inputmode="numeric" pattern="[0-9]*" id="nrEmp" name="nrEmp"  required>
+                                                </div><!-- End .col-sm-6 -->
+                                            </div><!-- End .row -->
+                                        </div><!-- End .form-group -->
+                                        <div class="form-group">
+                                            <div class="row">
+                                                <div class="col-sm-6">
+                                                    <label for="codpostEmp">Codigo Postal</label>
+                                                    <input type="text" class="form-control" id="codpostEmp" name="codpostEmp"  required>
+                                                </div><!-- End .col-sm-6 -->
+                                                <div class="col-sm-6">
+                                                    <label for="pais" >Pais</label>
+                                                    <input type="text" class="form-control" id="paisEmp" name="paisEmp"  required>
+                                                </div><!-- End .col-sm-6 -->
+                                            </div><!-- End .row -->
+                                        </div><!-- End .form-group -->
+                                        <div class="form-footer">
+                                            <button  type="submit"  class="btn btn-outline-primary-2">
+                                                <span >Enviar</span>
+                                                <i class="icon-long-arrow-right"></i>
+                                            </button>
+                                        </div><!-- End .form-footer -->
+                                    </form>
+                                </div><!-- .End .tab-pane -->
+                            </div><!-- End .tab-content -->
+                        </div><!-- End .form-tab -->
+                    </div><!-- End .form-box -->
+                </div><!-- End .modal-body -->
+            </div><!-- End .modal-content -->
+        </div><!-- End .modal-dialog -->
+    </div><!-- End .modal -->
+    
+
+
+    <!-- Plugins JS File -->
+    <script src="public/js/jquery.min.js"></script>
+    <script src="public/js/bootstrap.bundle.min.js"></script>
+    <script src="public/js/jquery.hoverIntent.min.js"></script>
+    <script src="public/js/jquery.waypoints.min.js"></script>
+    <script src="public/js/superfish.min.js"></script>
+    <script src="public/js/owl.carousel.min.js"></script>
+    <script src="public/js/bootstrap-input-spinner.js"></script>
+    <script src="public/js/jquery.magnific-popup.min.js"></script>
+    <script src="public/js/jquery.plugin.min.js"></script>
+    <script src="public/js/jquery.countdown.min.js"></script>
+    
+    <!-- Main JS File -->
+    <script src="public/js/main.js"></script>
+    <script src="public/js/demos/demo-13.js"></script>
+</body>
+
+
+<!-- molla/index-13.html  22 Nov 2019 09:59:31 GMT -->
+</html>

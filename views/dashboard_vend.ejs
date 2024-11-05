@@ -1,0 +1,890 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+<!-- molla/dashboard.html  22 Nov 2019 10:03:13 GMT -->
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Snap Buy</title>
+    <meta name="keywords" content="SNAP BUY">
+    <meta name="description" content="E-Commerce">
+    <meta name="author" content="Tiago Jorge">
+    <!-- Favicon -->
+    <link rel="apple-touch-icon" sizes="180x180" href="public/images/logo_pequeno.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="public/images/logo_pequeno.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="public/images/logo_pequeno.png">
+    <link rel="manifest" href="public/images/icons/site.html">
+    <link rel="mask-icon" href="public/images/icons/safari-pinned-tab.svg" color="#666666">
+    <link rel="shortcut icon" href="public/images/logo_pequeno.png">
+    <meta name="apple-mobile-web-app-title" content="Snap Buy">
+    <meta name="application-name" content="Snap Buy">
+    <meta name="msapplication-TileColor" content="#cc9966">
+    <meta name="msapplication-config" content="public/images/icons/browserconfig.xml">
+    <meta name="theme-color" content="#ffffff">
+    <link rel="stylesheet" href="public/vendor/line-awesome/line-awesome/line-awesome/css/line-awesome.min.css">
+    <!-- Plugins CSS File -->
+    <link rel="stylesheet" href="public/css/bootstrap.min.css">
+    <link rel="stylesheet" href="public/css/plugins/owl-carousel/owl.carousel.css">
+    <link rel="stylesheet" href="public/css/plugins/magnific-popup/magnific-popup.css">
+    <link rel="stylesheet" href="public/css/plugins/jquery.countdown.css">
+    <!-- Main CSS File -->
+    <link rel="stylesheet" href="public/css/style.css">
+    <link rel="stylesheet" href="public/css/skins/skin-demo-13.css">
+    <link rel="stylesheet" href="public/css/demos/demo-13.css">
+</head>
+
+<body>
+    <div class="page-wrapper">
+        <header class="header header-10 header-intro-clearance">
+         
+
+            <div class="header-middle">
+                <div class="container">
+                    <div class="header-left">
+                        <button class="mobile-menu-toggler">
+                            <span class="sr-only">Menu</span>
+                            <i class="icon-bars"></i>
+                        </button>
+                        
+                        <a href="/" class="logo">
+                            <img src="public/images/demos/demo-13/logo2.png" alt="SnapbBuy Logo" width="105" height="25">
+                        </a>
+                    </div><!-- End .header-left -->
+
+                    <div class="header-center">
+                   
+                    </div>
+
+                    <div class="header-right">
+                        <div class="header-dropdown-link">
+                           
+                            <div class="dropdown cart-dropdown">   
+                                <a href="/cart" class="dropdown-toggle" >
+                                    <i class="icon-shopping-cart"></i>
+                                    <%if(nrProd>0){%>
+                                    <span class="cart-count"><%=nrProd%></span>
+                                   <%}%>
+                                    <span class="cart-txt">Carrinho</span>
+                                </a>    
+                                <a href="/favoritos" class="wishlist-link">
+                                    <i class="icon-heart-o"></i>
+                                    <%if(nrFav>0){%>
+                                        <span class="wishlist-count"><%=nrFav%></span>
+                                       <%}%>
+                                    <span class="wishlist-txt">Favoritos</span>
+                                </a>                                           
+                                
+                            </div>
+                        </div>
+                    </div><!-- End .header-right -->
+                </div><!-- End .container -->
+            </div><!-- End .header-middle -->
+
+           
+        </header><!-- End .header -->
+
+        <main class="main">
+        	<div class="page-header text-center" style="background-image: url('public/images/page-header-bg.jpg')">
+        		<div class="container">
+                    <h1 class="page-title">Minha Conta<span>Vendedor</span></h1>
+        		</div><!-- End .container -->
+        	</div><!-- End .page-header -->
+            <nav aria-label="breadcrumb" class="breadcrumb-nav mb-3">
+               
+            </nav><!-- End .breadcrumb-nav -->
+
+            <div class="page-content">
+            	<div class="dashboard">
+	                <div class="container">
+	                	<div class="row">
+	                		<aside class="col-md-4 col-lg-3">
+	                			<ul class="nav nav-dashboard flex-column mb-3 mb-md-0" role="tablist">
+								   
+								    <li class="nav-item">
+								        <a class="nav-link active" id="tab-orders-link" data-toggle="tab" href="#tab-orders" role="tab" aria-controls="tab-orders" aria-selected="false">Produtos</a>
+								    </li>
+								    <li class="nav-item">
+								        <a class="nav-link" id="tab-address-link" data-toggle="tab" href="#tab-address" role="tab" aria-controls="tab-address" aria-selected="false">Conta</a>
+								    </li>
+								   
+								    <li class="nav-item">
+								        <a class="nav-link" href="/sair">Sair</a>
+								    </li>
+								</ul>
+	                		</aside><!-- End .col-lg-3 -->
+
+	                		<div class="col-md-8 col-lg-9">
+	                			<div class="tab-content">
+								   
+
+								    <div class="tab-pane fade show active" id="tab-orders" role="tabpanel" aria-labelledby="tab-orders-link">
+                                        <ul class="nav nav-tabs nav-tabs-bg" id="tabs-1" role="tablist">
+                                            <li class="nav-item">
+                                                <a class="nav-link active" id="tab-1-tab" data-toggle="tab" href="#tab-1" role="tab" aria-controls="tab-1" aria-selected="true">Adicionar Produto</a>
+                                            </li>
+                                            <li class="nav-item">
+                                                <a class="nav-link" id="tab-2-tab" data-toggle="tab" href="#tab-2" role="tab" aria-controls="tab-2" aria-selected="false">Lista de Produtos </a>
+                                            </li>
+                                            <li class="nav-item">
+                                                <a class="nav-link" id="tab-3-tab" data-toggle="tab" href="#tab-3" role="tab" aria-controls="tab-3" aria-selected="false">Promoções Ativas</a>
+                                            </li>
+                                            <li class="nav-item">
+                                                <a class="nav-link" id="tab-4-tab" data-toggle="tab" href="#tab-4" role="tab" aria-controls="tab-4" aria-selected="false">Encomendas a Enviar</a>
+                                            </li>
+                                           
+                                       
+                                        </ul>
+                                        <div class="tab-content tab-content-border" id="tab-content-1">
+                                            <div class="tab-pane fade active show" id="tab-1" role="tabpanel" aria-labelledby="tab-1-tab">
+                                                <div style="padding: 3rem;">
+                                                <!--Adicionar Produto-->
+                                                <form action="/addProdutos" method="POST" enctype="multipart/form-data">
+                                                    <label>Nome</label>
+                                                    <input type="text" class="form-control" id="cnome" name="nomeProd" required>
+                                                    <label> Descrição</label>
+                                                    <input type="text" class="form-control" id="descri" name="descri"  required>
+                                                    <div class="form-group">
+                                                        <div class="row">
+                                                            <div class="col-sm-6">
+                                                                <label>Preço Unitário</label>
+                                                                <input type="text" class="form-control" id="preco" name="preco" inputmode="numeric"  required> 
+                                                            </div>
+                                                            <div class="col-sm-6">
+                                                                <label>Quantidade</label>
+                                                                <input type="text" class="form-control" id="quant" name="quant" inputmode="numeric"  required> 
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div onclick="categoria('<%=JSON.stringify(subcat)%>',this)">
+                                                        <select class="form-control mb-2" aria-label="Default select example" id="selectCat" name="selectCat" required>
+                                                            <option  value="0" selected>Categoria</option>
+                                                            <%for(let i=0;i<categorias.length;i++){%>
+                                                                <option  value="<%=categorias[i].id%>"><%= categorias[i].nome%></option>
+                                                            <%}%>
+                                                        </select>
+                                                    </div>
+                                                    <select class="form-control mb-2" aria-label="Default select example" style="display: none;" id="selectHide" name="selectHide" required>
+                                                        <option value="0" selected>Subcategoria</option>
+                                                      </select>
+                                                    <div class="form-file">
+                                                        <label>Escolha a sua foto do produto:</label>
+                                                        <input type="file" class="form-file-input" id="image_homepage" name="image_homepage" hidden accept=”image/jpg,”image/jpeg,”image/png” required> 
+                                                        <label for="image_homepage" >
+                                                            <span class="form-file-button btn btn-primary btn-sm"  id="pseudoButton" name="pseudoButton">
+                                                                Procurar: &nbsp;
+                                                                <svg xmlns="http://www.w3.org/2000/svg" width="2rem" height="2rem" fill="currentColor" class="bi bi-cloud-arrow-up-fill" viewBox="0 0 16 16">
+                                                                    <path d="M8 2a5.53 5.53 0 0 0-3.594 1.342c-.766.66-1.321 1.52-1.464 2.383C1.266 6.095 0 7.555 0 9.318 0 11.366 1.708 13 3.781 13h8.906C14.502 13 16 11.57 16 9.773c0-1.636-1.242-2.969-2.834-3.194C12.923 3.999 10.69 2 8 2m2.354 5.146a.5.5 0 0 1-.708.708L8.5 6.707V10.5a.5.5 0 0 1-1 0V6.707L6.354 7.854a.5.5 0 1 1-.708-.708l2-2a.5.5 0 0 1 .708 0z"/>
+                                                                  </svg>
+                                                            </span>
+                                                        </label>
+                                                        <div class="mt-1 mb-2">
+                                                            <figure>  
+                                                                <img src="#" alt="Preview Uploaded Image" id="file-preview" hidden width="500vw"  style="aspect-ratio: 4/3;">
+                                                                <figcaption>Para melhores resultados usa uma imagem com uma proporção 4:3.</figcaption>
+                                                              </figure>
+                                                    </div>
+                                                    </div>
+                                                    <button type="submit" class="btn btn-outline-primary-2">
+                                                        <span>Guardar</span>
+                                                        <i class="icon-long-arrow-right"></i>
+                                                    </button>
+                                                </form>
+                                                <br>
+                                                <% if (msg) { %>
+                                                    <div class="alert alert-primary" >
+                                                        <%=msg %>
+                                                    </div>
+                                                <%}%>
+                                                </div>
+                                            </div><!-- .End .tab-pane -->
+                                            <div class="tab-pane fade" id="tab-2" role="tabpanel" aria-labelledby="tab-2-tab">
+                                                <div style="padding: 3rem;"class="tab-pane fade active show" id="tab-2" role="tabpanel" aria-labelledby="tab-2-tab">
+                                                    <table class="table table-striped" >
+                                                        <thead>
+                                                          <tr >
+                                                            <th  >Nome</th>
+                                                            <th  >Preço Unitário</th>
+                                                            <th >Subcategoria</th>
+                                                            <th   >Quantidade</th>
+                                                            
+                                                            <th  >* </th>
+                                                          </tr>
+                                                        </thead>
+                                                        <tbody>
+                                                         
+                                                            <!--Tabela de listar produtos-->
+                                                                <% let produto = 0; %>
+                                                                <% while (produto < produtos.length ){ %>
+                                                                <tr>
+                                                                    <td ><%= produtos[produto].nome %> </td>
+                                                                    <td ><%= produtos[produto].preco %></td>
+                                                                    <%for(let i = 0 ;i<subcat.length;i++){%>
+                                                                      <% if(produtos[produto].subcategoria_id == subcat[i].id){%>
+                                                                        <td> <%=subcat[i].nome%>   </td>
+                                                                      <%}}%>  
+                                                                    <td ><%= produtos[produto].quantidade %></td>
+                                                                    <!--Executa a função do modal.js para preencher o formulário de edição-->
+                                                                    <td  onclick="produtos(' <%= JSON.stringify(produtos) %>','<%=JSON.stringify(categorias)%>','<%=JSON.stringify(subcat)%>','<%= produtos[produto].id%> ');"><a href="#produtos-modal" data-toggle="modal"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrows-angle-expand" viewBox="0 0 16 16"> 
+                                                                        <path fill-rule="evenodd" d="M5.828 10.172a.5.5 0 0 0-.707 0l-4.096 4.096V11.5a.5.5 0 0 0-1 0v3.975a.5.5 0 0 0 .5.5H4.5a.5.5 0 0 0 0-1H1.732l4.096-4.096a.5.5 0 0 0 0-.707m4.344-4.344a.5.5 0 0 0 .707 0l4.096-4.096V4.5a.5.5 0 1 0 1 0V.525a.5.5 0 0 0-.5-.5H11.5a.5.5 0 0 0 0 1h2.768l-4.096 4.096a.5.5 0 0 0 0 .707"/>
+                                                                      </svg></a>
+                                                                    </td>
+                                                                </tr>
+                                                                <%    produto += 1; };%>
+                                                        </tbody>
+                                                      </table>
+                                                </div><!-- .End .tab-pane -->
+                                            </div><!-- .End .tab-pane -->
+                                            <div class="tab-pane fade" id="tab-3" role="tabpanel" aria-labelledby="tab-3-tab">
+                                                <div style="padding: 3rem;" class="tab-pane fade active show" id="tab-3" role="tabpanel" aria-labelledby="tab-3-tab">
+                                                    <!--Mostra a tabela com as promoções ativas-->
+                                                    <table class="table table-striped">
+                                                        <thead>
+                                                          <tr >
+                                                            <th scope="col">Foto</th>
+                                                            <th scope="col">Nome</th>
+                                                            <th scope="col">Quantidade</th>
+                                                            <th scope="col">Desconto (%)</th>
+                                                            <th scope="col"> *</th>
+                                                          </tr>
+                                                        </thead>
+                                                        <tbody>
+                                                            <% let promo = 0;let teste=0; %>
+                                                            <% while (promo < produtos.length){ %>
+                                                                <%if(produtos[promo].desconto>0){%>
+                                                            <tr>
+                                                                <td style="margin:0%;" ><img src="/public/images/produtos/<%=produtos[promo].foto%>" alt=""   style="width: 5vw; border: 1px solid black; aspect-ratio: 4/3;"> </td>
+                                                                <td ><%= produtos[promo].nome %></td>
+                                                                <td><%= produtos[promo].quantidade %></td>
+                                                                <td ><%= produtos[promo].desconto %></td>
+                                                                <td><a href="/rmvPromo=<%=produtos[promo].id%>" ><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-trash3" viewBox="0 0 16 16">
+                                                                    <path d="M6.5 1h3a.5.5 0 0 1 .5.5v1H6v-1a.5.5 0 0 1 .5-.5M11 2.5v-1A1.5 1.5 0 0 0 9.5 0h-3A1.5 1.5 0 0 0 5 1.5v1H1.5a.5.5 0 0 0 0 1h.538l.853 10.66A2 2 0 0 0 4.885 16h6.23a2 2 0 0 0 1.994-1.84l.853-10.66h.538a.5.5 0 0 0 0-1zm1.958 1-.846 10.58a1 1 0 0 1-.997.92h-6.23a1 1 0 0 1-.997-.92L3.042 3.5zm-7.487 1a.5.5 0 0 1 .528.47l.5 8.5a.5.5 0 0 1-.998.06L5 5.03a.5.5 0 0 1 .47-.53Zm5.058 0a.5.5 0 0 1 .47.53l-.5 8.5a.5.5 0 1 1-.998-.06l.5-8.5a.5.5 0 0 1 .528-.47M8 4.5a.5.5 0 0 1 .5.5v8.5a.5.5 0 0 1-1 0V5a.5.5 0 0 1 .5-.5"/>
+                                                                  </svg></a>
+                                                                </td>
+                                                            </tr>
+                                                            <% teste+=1   }promo += 1; }if(teste==0){%>
+                                                            </tbody>
+                                                        </table>
+                                                                <span> <b> Nenhuma promoção Ativa</b></span>
+                                                          <%  };%>
+                                                        </tbody>
+                                                    </table>
+                                                </div><!-- .End .tab-pane -->
+                                            </div><!-- .End .tab-pane -->
+                                            
+                                            <div class="tab-pane fade" id="tab-4" role="tabpanel" aria-labelledby="tab-4-tab">
+                                                <div style="padding: 3rem;"class="tab-pane fade active show" id="tab-4" role="tabpanel" aria-labelledby="tab-4-tab">
+                                                    <!--Lista de encomendas a enviar-->
+                                                    <table class="table table-striped" >
+                                                        <thead>
+                                                          <tr >
+                                                            <th  >Nº Encomenda</th>
+                                                            <th  >Data</th>
+                                                            <th >Total</th>
+                                                            <th >Destino</th>
+                                                            <th >*</th>
+                                                          </tr>
+                                                        </thead>
+                                                        <tbody>
+                                                            <%var control = 0;%>
+                                                         <%if (encomendasEmp.length>0){%>
+                                                         <%let i = 0;%>
+                                                         <%while (i<encomendasEmp.length){%>
+                                                            <%if(encomendasEmp[i].estado == "Aceite"){%>
+                                                               <%control +=1%>
+                                                                    <tr>
+                                                                        <td><%=encomendasEmp[i].id%></td>
+                                                                        <td>
+                                                                            <%let data = encomendasEmp[i].data%>
+                                                                            <%=data.getDate() + "/" + parseInt(data.getMonth()+ 1) + "/"+ data.getFullYear()%>
+                                                                        </td>
+                                                                        <td><%=encomendasEmp[i].total%>€</td>
+                                                                        <td><%=encomendasEmp[i].destino%></td>
+                                                                        <!-- Chama a função do ficheiro modal.js para preencher com os produtos da encomenda que pertencem á empresa-->
+                                                                        <td  onclick="encomenda('<%=JSON.stringify(infoProdEmp)%>','<%=JSON.stringify(prodencEmp)%>','<%=encomendasEmp[i].id%>','<%=JSON.stringify(encomendasEmp)%>','','<%=JSON.stringify(emp)%>')"><a href="#encomenda-modal" data-toggle="modal"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrows-angle-expand" viewBox="0 0 16 16"> 
+                                                                            <path fill-rule="evenodd" d="M5.828 10.172a.5.5 0 0 0-.707 0l-4.096 4.096V11.5a.5.5 0 0 0-1 0v3.975a.5.5 0 0 0 .5.5H4.5a.5.5 0 0 0 0-1H1.732l4.096-4.096a.5.5 0 0 0 0-.707m4.344-4.344a.5.5 0 0 0 .707 0l4.096-4.096V4.5a.5.5 0 1 0 1 0V.525a.5.5 0 0 0-.5-.5H11.5a.5.5 0 0 0 0 1h2.768l-4.096 4.096a.5.5 0 0 0 0 .707"/>
+                                                                        </svg></a>
+                                                                        </td>
+                                                                    </tr>
+                                                            <%}%>
+                                                        <%i+=1}%>                                                          
+                                                         </tbody>
+                                                        </table>
+                                                            <%}if (control == 0) {%>
+                                                            </tbody>
+                                                        </table>
+                                                        <span> <b> Nenhuma Encomenda</b></span>
+                                                           <% }%>
+                                                        
+                                                       
+                                                     
+                                                </div><!-- .End .tab-pane -->
+                                            </div><!-- .End .tab-pane -->
+                                            
+                                       
+
+                                        </div>     
+								    </div><!-- .End .tab-pane -->
+
+                                    <div class="tab-pane fade " id="tab-address" role="tabpanel" aria-labelledby="tab-orders-link">
+                                        
+                                        <ul class="nav nav-tabs nav-tabs-bg" id="tabs-2" role="tablist">
+                                            <li class="nav-item">
+                                                <a class="nav-link active" id="tab-5-tab" data-toggle="tab" href="#tab-5" role="tab" aria-controls="tab-5" aria-selected="true">Dados de Utilizador</a>
+                                            </li>
+                                            <li class="nav-item">
+                                                <a class="nav-link" id="tab-6-tab" data-toggle="tab" href="#tab-6" role="tab" aria-controls="tab-6" aria-selected="false">Dados de Envio </a>
+                                            </li>
+                                            <li class="nav-item">
+                                                <a class="nav-link" id="tab-7-tab" data-toggle="tab" href="#tab-7" role="tab" aria-controls="tab-7" aria-selected="false">Minhas Encomendas </a>
+                                            </li>
+                                            
+                                           
+                                       
+                                        </ul>
+                                        <div class="tab-content tab-content-border" id="tab-content-1">
+                                            <div class="tab-pane fade active show" id="tab-5" role="tabpanel" aria-labelledby="tab-5-tab">
+                                                <div style="padding: 3rem;">
+                                                    <form action="/conta" method="POST">
+			                				
+                                                        <label>Nome *</label>
+                                                        <input type="text" class="form-control" id="Vnome" name="Vnome" value="<%=dados.nome%>"  required>
+            
+                                                        <label>Email  *</label>
+                                                        <input type="email" class="form-control" id="Vemail" name="Vemail" value="<%=dados.email%>"  required>
+            
+                                                        <label>Telemovel  *</label>
+                                                        <input type="text" class="form-control" id="Vtel" name="Vtel"  inputmode="numeric" pattern="[0-9]*"  value="<%=dados.telemovel%>"  required> 
+            
+                                                        <label>Password Atual (deixar em branco para não alterar)</label>
+                                                        <input type="password" class="form-control"  name="Vpass" id="Vpass">
+            
+                                                        <label>Password Nova (deixar em branco para não alterar)</label>
+                                                        <input type="password" class="form-control" name="Vpassn" id="Vpassn">
+            
+                                                        <label>Confirmar Password Nova</label>
+                                                        <input type="password" class="form-control mb-2" name="Vcpassn" id="Vcpassn">
+            
+                                                        <button type="submit" class="btn btn-outline-primary-2">
+                                                            <span>Guardar</span>
+                                                            <i class="icon-long-arrow-right"></i>
+                                                        </button>
+                                                    </form>
+                                                </div>
+                                            </div>
+                                            <div class="tab-pane fade" id="tab-6" role="tabpanel" aria-labelledby="tab-6-tab">
+                                                <div style="padding: 3rem;">
+                                                    <div class="row">
+                                                        <div class="col-lg-6" style="padding:3rem;">
+                                                            <div class="card card-dashboard">
+                                                                <div class="card-body">
+                                                                    <h3 class="card-title">Dados de Envio</h3><!-- End .card-title -->
+            
+                                                                    <p><%=dados.morada%><br>
+                                                                        <%=dados.codpost%><br>
+                                                                       <%= dados.cidade%>,<br>
+                                                                       <%= dados.pais%><br>
+                                                                    
+                                                                    <a href="#edit-modal" data-toggle="modal">Edit <i class="icon-edit"></i></a></p>
+                                                                </div><!-- End .card-body -->
+                                                            </div><!-- End .card-dashboard -->
+                                                        </div><!-- End .col-lg-6 -->
+            
+                                                        
+                                                    </div><!-- End .row -->
+                                                </div>
+                                            </div>
+                                            <div class="tab-pane fade" id="tab-7" role="tabpanel" aria-labelledby="tab-7-tab">
+                                                <div style="padding:3rem;">
+                                                    <% if (encomendas.length>0){%>
+                                                        <table class="table table-striped" >
+                                                            <thead>
+                                                              <tr >
+                                                                <th>Nº Encomenda</th>
+                                                                <th>Data</th>
+                                                                <th>Estado</th>
+                                                                <th>Total</th>
+                                                                <th>* </th>
+                                                              </tr>
+                                                            </thead>
+                                                            <tbody>
+                                                             
+                                                                <%let i = 0;%>
+                                                                <%while(i<encomendas.length){%>
+                                                                    <% let data = encomendas[i].data%>
+                                                                    <tr>
+                                                                        <td> <%=encomendas[i].id%>     </td>
+                                                                        <td> <%=data.getDate() + "/" + parseInt(data.getMonth()+ 1) + "/"+ data.getFullYear()%></td>
+                                                                        <td> <%=encomendas[i].estado%> </td>
+                                                                        <td> <%=encomendas[i].total%>€</td>
+                                                                        <td  onclick="encomenda('<%=JSON.stringify(infoProd)%>','<%=JSON.stringify(prodenc)%>','<%=encomendas[i].id%>','<%=JSON.stringify(encomendas)%>')"><a href="#encomenda2-modal" data-toggle="modal"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrows-angle-expand" viewBox="0 0 16 16"> 
+                                                                            <path fill-rule="evenodd" d="M5.828 10.172a.5.5 0 0 0-.707 0l-4.096 4.096V11.5a.5.5 0 0 0-1 0v3.975a.5.5 0 0 0 .5.5H4.5a.5.5 0 0 0 0-1H1.732l4.096-4.096a.5.5 0 0 0 0-.707m4.344-4.344a.5.5 0 0 0 .707 0l4.096-4.096V4.5a.5.5 0 1 0 1 0V.525a.5.5 0 0 0-.5-.5H11.5a.5.5 0 0 0 0 1h2.768l-4.096 4.096a.5.5 0 0 0 0 .707"/>
+                                                                          </svg></a>
+                                                                        </td>
+                                                                    </tr>
+                                                                    
+                                                        <% i+=1 }%>
+                                                            </tbody>
+                                                          </table>
+                                                        <%}else{%>
+                                                            <p>Sem Encomendas.</p>
+                                                            <a href="/" class="btn btn-outline-primary-2"><span>LOJA</span><i class="icon-long-arrow-right"></i></a>
+                                                        <%}%>
+                                                </div>
+                                               
+                                            </div>
+
+                                        </div><!-- .End .tab-pane -->
+                                          
+                                    </div><!-- .End .tab-pane -->
+                                         
+                                            
+                                       
+
+                             
+								   
+                                    
+
+								
+								</div><!-- End .tab-content -->
+                            </div><!-- End .tab-content -->
+	                		</div><!-- End .col-lg-9 -->
+	                	</div><!-- End .row -->
+	                </div><!-- End .container -->
+                </div><!-- End .dashboard -->
+            </div><!-- End .page-content -->
+        </main><!-- End .main -->
+
+
+       
+
+        <footer class="footer footer-2">
+           
+
+            <div class="footer-middle border-0">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-sm-12 col-lg-6">
+                            <div class="widget widget-about">
+                                <!-- Aqui1-->
+                                <img src="public/images/demos/demo-13/logo2.png" alt="SnapbBuy Logo" width="200" height="100">
+
+                                <!--Aqui1-->
+                                <div class="widget-about-info">
+                                    <div class="row">
+                                        <div class="col-sm-6 col-md-4">
+                                            <span class="widget-about-title">Tem uma duvida?</span>
+                                            <a href="tel:+351960208974">+351960208974</a>
+                                        </div><!-- End .col-sm-6 -->
+                                      
+                                    </div><!-- End .row -->
+                                </div><!-- End .widget-about-info -->
+                            </div><!-- End .widget about-widget -->
+                        </div><!-- End .col-sm-12 col-lg-3 -->
+                        <!-- Aqui 3-->
+                        <div class="col-sm-4 col-lg-2">
+                         
+                        </div><!-- End .col-sm-64 col-lg-3 -->
+                        <div class="col-sm-4 col-lg-2">
+                            <div class="widget">
+                                <h4 class="widget-title">Informação</h4><!-- End .widget-title -->
+
+                                <ul class="widget-list">
+                                    <li><a href="/sobre">Sobre Nós</a></li>
+                                    <li><a href="/">Pagina Principal</a></li>
+                                    <li><a href="/faq">FAQ</a></li>
+                                    <li><a href="/registar">Entrar/Registar</a></li>
+                                </ul><!-- End .widget-list -->
+                            </div><!-- End .widget -->
+                        </div><!-- End .col-sm-4 col-lg-3 -->
+
+                        <div class="col-sm-4 col-lg-2">
+                            <div class="widget">
+                                <h4 class="widget-title">Apoio ao Cliente</h4><!-- End .widget-title -->
+
+                                <ul class="widget-list">
+                                    <li><a href="/faq#faqPagamentos">Metedos de pagamento</a></li>
+                                    <li><a href="/faq#faqEncmPergunta3">Politica de devoluções</a></li>
+                                    <li><a href="/faq#faqEncmPergunta3">Devoluções</a></li>
+                                    <li><a href="/faq#faqEncomendas">Encomendas</a></li>
+                                    <li><a href="/faq#faqInfoPergunta3">Taxas</a></li>
+                                    <li><a href="/faq#faqEncmPergunta2">Atrasos</a></li>
+                                </ul><!-- End .widget-list -->
+                            </div><!-- End .widget -->
+                        </div><!-- End .col-sm-4 col-lg-3 -->
+
+                        
+                    </div><!-- End .row -->
+                </div><!-- End .container -->
+            </div><!-- End .footer-middle -->
+                        <!-- Aqui 3-->
+
+            <div class="footer-bottom">
+                <div class="container" style="display:flex;justify-content: center;">
+                    <p class="footer-copyright">Copyright © 2024 SnapBuy. Todos os direitos reservados.</p><!-- End .footer-copyright -->
+                </div><!-- End .container -->
+            </div><!-- End .footer-bottom -->
+        </footer><!-- End .footer -->
+    </div><!-- End .page-wrapper -->
+    <button id="scroll-top" title="Back to Top"><i class="icon-arrow-up"></i></button>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu-overlay"></div><!-- End .mobil-menu-overlay -->
+
+    <div class="mobile-menu-container mobile-menu-light">
+        <div class="mobile-menu-wrapper">
+            <span class="mobile-menu-close"><i class="icon-close"></i></span>
+            
+
+            <ul class="nav nav-pills-mobile nav-border-anim" role="tablist">
+                <li class="nav-item">
+                    <a class="nav-link active" id="mobile-menu-link" data-toggle="tab" href="#mobile-menu-tab" role="tab" aria-controls="mobile-menu-tab" aria-selected="true">Menu</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" id="mobile-cats-link" data-toggle="tab" href="#mobile-cats-tab" role="tab" aria-controls="mobile-cats-tab" aria-selected="false">Categorias</a>
+                </li>
+            </ul>
+
+            <div class="tab-content">
+                <div class="tab-pane fade show active" id="mobile-menu-tab" role="tabpanel" aria-labelledby="mobile-menu-link">
+                    <nav class="mobile-nav">
+                        <ul class="mobile-menu">
+                            <%if(login == true){%>
+                            <li>
+                                <a href="#edit-modal" data-toggle="modal" >Junta-te á Snap Buy!</a>
+
+                               
+                            </li>
+                           <%}%>
+                            <li>
+                                <a href="/faq">FAQs</a>
+
+                            </li>
+                            <li>
+                                <a href="/sobre">Sobre Nós</a>
+
+                            </li>
+                           
+                        </ul><!-- End .menu -->
+                    </nav><!-- End .mobile-nav -->
+                </div><!-- .End .tab-pane -->
+                <div class="tab-pane fade" id="mobile-cats-tab" role="tabpanel" aria-labelledby="mobile-cats-link">
+                    <nav class="mobile-cats-nav">
+                        <ul class="mobile-cats-menu">
+                            <%let i = 0;%>
+                            <%let cat = categorias;%>
+                            <%while(i<cat.length){%>
+                            <li><a class="mobile-cats-lead" href="/cat=<%=cat[i].id%>"><%=cat[i].nome%></a></li>
+                            <%i+=1}%>
+                        </ul><!-- End .mobile-cats-menu -->
+                    </nav><!-- End .mobile-cats-nav -->
+                </div><!-- .End .tab-pane -->
+            </div><!-- End .tab-content -->
+
+        </div><!-- End .mobile-menu-wrapper -->
+    </div><!-- End .mobile-menu-container -->
+
+    <div class="modal fade" id="edit-modal" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true"><i class="icon-close"></i></span>
+                    </button>
+
+                    <div class="form-box">
+                        <div class="form-tab">
+                            <ul class="nav nav-pills nav-fill" role="tablist">
+                                <li class="nav-item">
+                                    <a class="nav-link active" id="edit-tab" data-toggle="tab"  role="tab" aria-controls="signin" aria-selected="true">Editar Morada</a>
+                                </li>
+                            
+                            </ul>
+                            <div class="tab-content" id="tab-content-5">
+                                <div class="tab-pane fade show active" id="edit" role="tabpanel" aria-labelledby="edit-tab">
+                                    <form action="/morada" method="POST">
+                                        <div class="form-group">
+                                            <label for="rua">Rua</label>
+                                            <% let rua = dados.morada.split(",") %>                          
+                                                    <input type="text" class="form-control" id="rua" name="rua" value="<%= rua[0].trim() %>" required>
+                                        </div><!-- End .form-group -->
+                                        <div class="form-group">
+                                            <div class="row">
+                                                <div class="col-sm-6">
+                                                    <label for="nr">Nº</label>
+                                                    <input type="text" class="form-control" inputmode="numeric" pattern="[0-9]*" id="nr" name="nr" value="<%= rua[1].trim() %>" required> 
+                                                </div><!-- End .col-sm-6 -->
+            
+                                                <div class="col-sm-6">
+                                                    <label for="codpost" >Codigo Postal</label>
+                                                    <input type="text" class="form-control" id="codpost" name="codpost" value="<%= dados.codpost %>" required>
+                                                </div><!-- End .col-sm-6 -->
+                                            </div><!-- End .row -->
+                                        </div><!-- End .form-group -->
+
+                                        <div class="form-group">
+                                            <div class="row">
+                                                <div class="col-sm-6">
+                                                    <label for="cidade">Cidade</label>
+                                                    <input type="text" class="form-control" id="cidade" name="cidade" value="<%= dados.cidade %>" required>
+                                                </div><!-- End .col-sm-6 -->
+            
+                                                <div class="col-sm-6">
+                                                    <label for="pais" >Pais</label>
+                                                    <input type="text" class="form-control" id="pais" name="pais"  value="<%= dados.pais %>" required>
+                                                </div><!-- End .col-sm-6 -->
+                                            </div><!-- End .row -->
+                                        </div><!-- End .form-group -->
+
+                                        
+
+                                        <div class="form-footer">
+                                            <button  type="submit"  class="btn btn-outline-primary-2">
+                                                <span>Guardar</span>
+                                                <i class="icon-long-arrow-right"></i>
+                                            </button>
+
+                                            
+
+
+                                        </div><!-- End .form-footer -->
+                                    </form>
+                                   
+                                </div><!-- .End .tab-pane -->
+                                
+                            </div><!-- End .tab-content -->
+                        </div><!-- End .form-tab -->
+                    </div><!-- End .form-box -->
+                </div><!-- End .modal-body -->
+            </div><!-- End .modal-content -->
+        </div><!-- End .modal-dialog -->
+    </div><!-- End .modal -->
+    
+    <div class="modal fade" id="produtos-modal" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true"><i class="icon-close"></i></span>
+                    </button>
+
+                    <div class="form-box">
+                        <div class="form-tab">
+                            <ul class="nav nav-pills nav-fill" role="tablist">
+                                <li class="nav-item">
+                                    <a class="nav-link active" id="produtos-tab" data-toggle="tab"  role="tab" aria-controls="signin" aria-selected="true">Editar Produto</a>
+                                </li>
+                            
+                            </ul>
+                            <div class="tab-content" id="tab-content-5">
+                                <div class="tab-pane fade show active" id="edit" role="tabpanel" aria-labelledby="produtos-tab">
+                                    <!--Editar/Remover Produto-->
+                                    <form id="formEditarProd" method="POST" action="/editProdutos" enctype="multipart/form-data">
+                                        <div class="form-group">
+                                                    <label for="eNomeProd">Nome</label>
+                                                    <input type="text" class="form-control"  id="eNomeProd" name="eNomeProd" required> 
+                                                    <input type="text" id="editProdId" name="editProdId" hidden >
+                                        </div><!-- End .form-group -->
+                                        <div class="form-group">
+                                            <div class="row">
+                                                <div class="col-sm-6">
+                                                    <label for="descProd">Descrição</label>
+                                                    <input type="text" class="form-control" id="descProd" name="descProd" required> 
+                                                </div><!-- End .col-sm-6 -->
+                                                <div class="col-sm-6">
+                                                    <label for="precoProd" >Preço</label>
+                                                    <input type="text" class="form-control" id="precoProd" name="precoProd" inputmode="numeric"  required> 
+                                                </div><!-- End .col-sm-6 -->
+                                            </div><!-- End .row -->
+                                        </div><!-- End .form-group -->
+                                        <div class="form-group">
+                                            <div class="row">
+                                                <div class="col-sm-6">
+                                                    <label>Categoria</label>
+                                                    <select   onchange="select('<%= JSON.stringify(subcat)%>',this.value)" class="form-control mb-2" aria-label="Default select example" id="catProd" name="catProd" required>
+                                                        <%for(let i=0;i<categorias.length;i++){%>
+                                                            <option value="<%=categorias[i].id%>"><%= categorias[i].nome%></option>
+                                                        <%}%>
+                                                    </select>
+                                                </div>
+                                                <div class="col-sm-6">
+                                                    <label>Subcategoria</label>
+                                                    <select class="form-control mb-2" aria-label="Default select example" id="subcatProd" name="subcatProd" required>
+                                                    </select>
+                                                </div>
+                                            </div><!-- End .row -->
+                                        </div><!-- End .form-group -->
+                                        <div class="form-group">
+                                            <div class="row">
+                                                <div class="col-sm-6">
+                                                    <label for="quantProd">Quantidade</label>
+                                                    <input type="text" class="form-control" id="quantProd" name="quantProd" required>
+                                                </div><!-- End .col-sm-6 -->
+                                                <div class="col-sm-6">
+                                                    <label for="descontoProd" >Desconto (%)</label>
+                                                    <input type="text" class="form-control" id="descontoProd" name="descontoProd"   required>
+                                                </div><!-- End .col-sm-6 -->
+                                            </div><!-- End .row -->
+                                        </div><!-- End .form-group -->
+                                        <div class="form-group" style="  align-items: center; display:flex; ">
+                                            <input type="file" class="form-file-input" name="imgProdEdit" id="imgProdEdit" hidden accept=”image/jpg,”image/jpeg,”image/png”>
+                                            <label for="imgProdEdit">
+                                                <div >
+                                                    <figure>
+                                                        <img id="imgProd" src="" alt="Imagem do Produto" width="300vw"
+                                                        style="border: 1px solid black; aspect-ratio: 4/3;">
+                                                        <figcaption>Clique na imagem para editar</figcaption>
+                                                    </figure>
+                                                </div>
+                                            </label>
+                                        </div>
+                                        <div class="form-footer">
+                                            <button  type="submit"  class="btn btn-outline-primary-2">
+                                                <span>Guardar</span>
+                                                <i class="icon-long-arrow-right"></i>
+                                            </button>
+
+                                            <a class="btn btn-outline-primary-2" id="rmvProd" name="rmvProd"  > 
+                                             <span>Remover</span>  
+                                             <i class="icon-close"></i>
+                                            </a>
+                                        </div><!-- End .form-footer -->
+                                    </form>
+                                </div><!-- .End .tab-pane -->
+                            </div><!-- End .tab-content -->
+                        </div><!-- End .form-tab -->
+                    </div><!-- End .form-box -->
+                </div><!-- End .modal-body -->
+            </div><!-- End .modal-content -->
+        </div><!-- End .modal-dialog -->
+    </div><!-- End .modal -->
+    <div class="modal fade" id="encomenda-modal" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true"><i class="icon-close"></i></span>
+                    </button>
+
+                    <div class="form-box">
+                        <div class="form-tab">
+                            <ul class="nav nav-pills nav-fill" role="tablist">
+                                <li class="nav-item">
+                                    <a class="nav-link active" id="edit-tab" data-toggle="tab"  role="tab" aria-controls="signin" aria-selected="true">Resumo da Encomenda</a>
+                                </li>
+                            
+                            </ul>
+                            <div class="tab-content" id="tab-content-5">
+                                <div class="tab-pane fade show active" id="edit" role="tabpanel" aria-labelledby="edit-tab">
+                                       <div class="form-group">
+                                            <label for="destino"><b>Destino</b></label>   <br>                   
+                                                    <span id="destino" name="destino"></span>
+                                        </div><!-- End .form-group -->
+                                        <div class="form-group">
+                                            
+                                                <table id="encTable" name="encTable" class="table table-cart table-mobile">
+                                                    <thead>
+                                                        <tr>
+                                                            <th>Produto</th>
+                                                            <th>Preço</th>
+                                                            <th>Quantidade</th>
+                                                            <th>Total</th>
+                                                        </tr>
+                                                    </thead>
+                
+                                                    <tbody>
+                                                     
+                                                           
+                                                    </tbody>
+                                                </table><!-- End .table table-wishlist -->
+                                            <form action="" method="GET" id="encID" name="encID">  
+                                                <button  type="submit"  class="btn btn-outline-primary-2">
+                                                    <span>Enviar</span>
+                                                    <i class="icon-long-arrow-right"></i>
+                                                </button>
+                                            </form>  
+                                        </div><!-- End .form-group -->
+
+                                      
+
+                                            
+
+
+                                    
+                                   
+                                </div><!-- .End .tab-pane -->
+                                
+                            </div><!-- End .tab-content -->
+                        </div><!-- End .form-tab -->
+                    </div><!-- End .form-box -->
+                </div><!-- End .modal-body -->
+            </div><!-- End .modal-content -->
+        </div><!-- End .modal-dialog -->
+    </div><!-- End .modal -->
+    <div class="modal fade" id="encomenda2-modal" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true"><i class="icon-close"></i></span>
+                    </button>
+                    <div class="form-box">
+                        <div class="form-tab">
+                            <ul class="nav nav-pills nav-fill" role="tablist">
+                                <li class="nav-item">
+                                    <a class="nav-link active" id="edit-tab" data-toggle="tab"  role="tab" aria-controls="signin" aria-selected="true">Resumo da Encomenda</a>
+                                </li>
+                            </ul>
+                            <div class="tab-content" id="tab-content-5">
+                                <div class="tab-pane fade show active" id="edit" role="tabpanel" aria-labelledby="edit-tab">
+                                       <div class="form-group">
+                                            <label for="destino2"><b>Destino</b></label>   <br>    
+                                            <!--prenchido dinamicamente-->               
+                                                    <span id="destino2" name="destino2"></span>
+                                        </div><!-- End .form-group -->
+                                        <div class="form-group">
+                                            <!-- Tabela prenchida dinamicamente-->
+                                                <table id="encTable2" name="encTable2" class="table table-cart table-mobile">
+                                                    <thead>
+                                                        <tr>
+                                                            <th>Produto</th>
+                                                            <th>Preço</th>
+                                                            <th>Quantidade</th>
+                                                            <th>Total</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>   
+                                                    </tbody>
+                                                </table><!-- End .table table-wishlist -->
+                                        </div><!-- End .form-group -->
+                                </div><!-- .End .tab-pane -->
+                            </div><!-- End .tab-content -->
+                        </div><!-- End .form-tab -->
+                    </div><!-- End .form-box -->
+                </div><!-- End .modal-body -->
+            </div><!-- End .modal-content -->
+        </div><!-- End .modal-dialog -->
+    </div><!-- End .modal -->
+    
+
+
+
+    <!-- Plugins JS File -->
+    <script src="public/js/jquery.min.js"></script>
+    <script src="public/js/bootstrap.bundle.min.js"></script>
+    <script src="public/js/jquery.hoverIntent.min.js"></script>
+    <script src="public/js/jquery.waypoints.min.js"></script>
+    <script src="public/js/superfish.min.js"></script>
+    <script src="public/js/owl.carousel.min.js"></script>
+    <script src="public/js/bootstrap-input-spinner.js"></script>
+    <script src="public/js/jquery.elevateZoom.min.js"></script>
+   <!--  <script src="public/js/jquery.magnific-popup.min.js"></script> -->
+    <!-- Main JS File -->
+    <script src="public/js/main.js"></script>
+    <script src="public/js/modal.js"></script>
+</body>
+
+
+<!-- molla/dashboard.html  22 Nov 2019 10:03:13 GMT -->
+</html>

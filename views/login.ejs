@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="pt">
+
+
+<!-- molla/login.html  22 Nov 2019 10:04:03 GMT -->
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Snap Buy</title>
+    <meta name="keywords" content="SNAP BUY">
+    <meta name="description" content="E-Commerce">
+    <meta name="author" content="Tiago Jorge">
+    <!-- Favicon -->
+    <link rel="apple-touch-icon" sizes="180x180" href="public/images/logo_pequeno.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="public/images/logo_pequeno.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="public/images/logo_pequeno.png">
+    <link rel="manifest" href="public/images/icons/site.html">
+    <link rel="mask-icon" href="public/images/icons/safari-pinned-tab.svg" color="#666666">
+    <link rel="shortcut icon" href="public/images/logo_pequeno.png">
+    <meta name="apple-mobile-web-app-title" content="Snap Buy">
+    <meta name="application-name" content="Snap Buy">
+    <meta name="msapplication-TileColor" content="#cc9966">
+    <meta name="msapplication-config" content="public/images/icons/browserconfig.xml">
+    <meta name="theme-color" content="#ffffff">
+    <link rel="stylesheet" href="public/vendor/line-awesome/line-awesome/line-awesome/css/line-awesome.min.css">
+    <!-- Plugins CSS File -->
+    <link rel="stylesheet" href="public/css/bootstrap.min.css">
+    <link rel="stylesheet" href="public/css/plugins/owl-carousel/owl.carousel.css">
+    <link rel="stylesheet" href="public/css/plugins/magnific-popup/magnific-popup.css">
+    <link rel="stylesheet" href="public/css/plugins/jquery.countdown.css">
+    <!-- Main CSS File -->
+    <link rel="stylesheet" href="public/css/style.css">
+    <link rel="stylesheet" href="public/css/skins/skin-demo-13.css">
+    <link rel="stylesheet" href="public/css/demos/demo-13.css">
+</head>
+
+
+
+<body>
+    <div class="page-wrapper">
+        <header class="header header-10 header-intro-clearance">
+            
+
+            <div class="header-middle">
+                <div class="container">
+                    <div class="header-left">
+                        <button class="mobile-menu-toggler">
+                            <span class="sr-only">Menu</span>
+                            <i class="icon-bars"></i>
+                        </button>
+                        
+                        <a href="/" class="logo">
+                            <img src="public/images/demos/demo-13/logo2.png" alt="SnapbBuy Logo" width="105" height="25">
+                        </a>
+                    </div><!-- End .header-left -->
+
+
+                    <div class="header-right">
+                        <div class="header-dropdown-link">
+                           
+                           
+                            <a href="/favoritos" class="wishlist-link">
+                                <i class="icon-heart-o"></i>
+                                <span class="wishlist-txt">Favoritos</span>
+                            </a>
+                
+                            <div class="dropdown cart-dropdown">
+                                <a href="/cart" class="dropdown-toggle" >
+                                    <i class="icon-shopping-cart"></i>
+                                    <span class="cart-txt">Carrinho</span>
+                                </a>
+                            
+                                <a href="/dashboard" class="wishlist-link">
+                                      <i class="icon-user"></i>
+                                      <span class="wishlist-txt">Conta</span>
+                                  </a>
+                            </div>
+                        </div>
+
+                       
+
+
+                    </div><!-- End .header-right -->
+                </div><!-- End .container -->
+            </div><!-- End .header-middle -->
+        </header><!-- End .header -->
+
+        <main class="main">
+        
+
+            <div class="login-page bg-image pt-8 pb-8 pt-md-12 pb-md-12 pt-lg-17 pb-lg-17" style="background-image: url('public/images/demos/demo-13/slider/banner_login_snap.jpg');background-size: cover;
+             background-attachment: fixed; width: 100vw;">
+            	<div class="container">
+            		<div class="form-box">
+            			<div class="form-tab">
+                         <% if (errorregi) { %>
+                            <ul class="nav nav-pills nav-fill" role="tablist">
+							    <li class="nav-item">
+							        <a class="nav-link" id="signin-tab-2" data-toggle="tab" href="#signin-2" role="tab" aria-controls="signin-2" aria-selected="false">Entrar</a>
+							    </li>
+							    <li class="nav-item">
+							        <a class="nav-link active" id="register-tab-2" data-toggle="tab" href="#register-2" role="tab" aria-controls="register-2" aria-selected="true">Registar</a>
+							    </li>
+							</ul>
+							<div class="tab-content">
+							    <div class="tab-pane fade" id="signin-2" role="tabpanel" aria-labelledby="signin-tab-2">
+							    	<form action="/auth" method="POST">
+							    		<div class="form-group">
+							    			<label for="singin-email-2">Utilizador *</label>
+							    			<input type="text" class="form-control" id="singin_email_2" name="singin_email_2" required>
+							    		</div><!-- End .form-group -->
+
+							    		<div class="form-group">
+							    			<label for="singin-password-2">Password *</label>
+							    			<input type="password" class="form-control" id="singin_password_2" name="singin_password_2" required>
+							    		</div><!-- End .form-group -->
+                                      
+
+							    		<div class="form-footer">
+							    			<button type="submit" class="btn btn-outline-primary-2">
+			                					<span>Entrar</span>
+			            						<i class="icon-long-arrow-right"></i>
+			                				</button>
+
+			                			
+
+											
+							    		</div><!-- End .form-footer -->
+							    	</form>
+							    	
+							    </div><!-- .End .tab-pane -->
+							    <div class="tab-pane fade show active " id="register-2" role="tabpanel" aria-labelledby="register-tab-2">
+							    	<form action="/registar" method="POST">
+							    		<div class="form-group">
+							    			<label for="register-email-2"> Nome *</label>
+							    			<input type="text" class="form-control" id="nome" name="nome" required>
+							    		</div><!-- End .form-group -->
+                                        <div class="form-group">
+							    			<label for="register-email-2"> Email *</label>
+							    			<input type="email" class="form-control" id="register_email" name="register_email" required>
+							    		</div><!-- End .form-group -->
+                                        <div class="form-group">
+                                            <label>Telemovel  *</label>
+                                            <input type="text" class="form-control" id="register_telemovel" name="register_telemovel"  inputmode="numeric" pattern="[0-9]*"  required> 
+                                        </div>
+							    		<div class="form-group">
+							    			<label for="register-password-2">Password *</label>
+							    			<input type="password" class="form-control" id="register_password" name="register_password" required>
+							    		</div><!-- End .form-group -->
+                                        <div class="form-group">
+							    			<label for="singin-password-2">Confirmar Password *</label>
+							    			<input type="password" class="form-control" id="register_password2" name="register_password2" required>
+							    		</div><!-- End .form-group -->
+                                        
+                                       
+                                            <div class="alert alert-danger" >
+                                                <%= errorregi %>
+                                            </div>
+                                         
+
+
+							    		<div class="form-footer">
+							    			<button type="submit" class="btn btn-outline-primary-2">
+			                					<span>Registar</span>
+			            						<i class="icon-long-arrow-right"></i>
+			                				</button>
+                         <% } %>
+                           
+                         <% if (errorlogin) { %>
+                            <ul class="nav nav-pills nav-fill" role="tablist">
+							    <li class="nav-item">
+							        <a class="nav-link active" id="signin-tab-2" data-toggle="tab" href="#signin-2" role="tab" aria-controls="signin-2" aria-selected="true">Entrar</a>
+							    </li>
+							    <li class="nav-item">
+							        <a class="nav-link " id="register-tab-2" data-toggle="tab" href="#register-2" role="tab" aria-controls="register-2" aria-selected="false">Registar</a>
+							    </li>
+							</ul>
+							<div class="tab-content">
+							    <div class="tab-pane fade show active" id="signin-2" role="tabpanel" aria-labelledby="signin-tab-2">
+                                     <!--Formulário login-->
+							    	<form action="/auth" method="POST">
+							    		<div class="form-group">
+							    			<label for="singin-email-2">Utilizador *</label>
+							    			<input type="text" class="form-control" id="singin_email_2" name="singin_email_2" required>
+							    		</div><!-- End .form-group -->
+							    		<div class="form-group">
+							    			<label for="singin-password-2">Password *</label>
+							    			<input type="password" class="form-control" id="singin_password_2" name="singin_password_2" required>
+							    		</div><!-- End .form-group -->
+                                            <div class="alert alert-danger" >
+                                                <%= errorlogin %>
+                                            </div>
+							    		<div class="form-footer">
+							    			<button type="submit" class="btn btn-outline-primary-2">
+			                					<span>Entrar</span>
+			            						<i class="icon-long-arrow-right"></i>
+			                				</button>
+							    		</div><!-- End .form-footer -->
+							    	</form>
+							    	
+							    </div><!-- .End .tab-pane -->
+							    <div class="tab-pane fade  " id="register-2" role="tabpanel" aria-labelledby="register-tab-2">
+                                    <!--Formulário Registar-->
+							    	<form action="/registar" method="POST">
+							    		<div class="form-group">
+							    			<label for="register-email-2"> Nome *</label>
+							    			<input type="text" class="form-control" id="nome" name="nome" required>
+							    		</div><!-- End .form-group -->
+                                        <div class="form-group">
+							    			<label for="register-email-2"> Email *</label>
+							    			<input type="email" class="form-control" id="register_email" name="register_email" required>
+							    		</div><!-- End .form-group -->
+							    		<div class="form-group">
+							    			<label for="register-password-2">Password *</label>
+							    			<input type="password" class="form-control" id="register_password" name="register_password" required>
+							    		</div><!-- End .form-group -->
+                                        <div class="form-group">
+							    			<label for="singin-password-2">Confirmar Password *</label>
+							    			<input type="password" class="form-control" id="register_password2" name="register_password2" required>
+							    		</div><!-- End .form-group -->
+							    		<div class="form-footer">
+							    			<button type="submit" class="btn btn-outline-primary-2">
+			                					<span>Registar</span>
+			            						<i class="icon-long-arrow-right"></i>
+			                				</button>
+                                    </form>
+                         <% } %>
+	            			<% if (!errorlogin && !errorregi) { %>
+                                <ul class="nav nav-pills nav-fill" role="tablist">
+                                    <li class="nav-item">
+                                        <a class="nav-link active" id="signin-tab-2" data-toggle="tab" href="#signin-2" role="tab" aria-controls="signin-2" aria-selected="false">Entrar</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link " id="register-tab-2" data-toggle="tab" href="#register-2" role="tab" aria-controls="register-2" aria-selected="true">Registar</a>
+                                    </li>
+                                </ul>
+                                <div class="tab-content">
+                                    <div class="tab-pane fade show active" id="signin-2" role="tabpanel" aria-labelledby="signin-tab-2">
+                                        
+                                        <!--Formulário de Login-->
+                                        <form action="/auth" method="POST">
+                                            <div class="form-group">
+                                                <label for="singin-email-2">Utilizador *</label>
+                                                <input type="text" class="form-control" id="singin_email_2" name="singin_email_2" required>
+                                            </div><!-- End .form-group -->
+    
+                                            <div class="form-group">
+                                                <label for="singin-password-2">Password *</label>
+                                                <input type="password" class="form-control" id="singin_password_2" name="singin_password_2" required>
+                                            </div><!-- End .form-group -->
+                                          
+                                            <div class="form-footer">
+                                                <button type="submit" class="btn btn-outline-primary-2">
+                                                    <span>Entrar</span>
+                                                    <i class="icon-long-arrow-right"></i>
+                                                </button>
+                                            </div><!-- End .form-footer -->
+                                        </form>
+                                        
+                                    </div><!-- .End .tab-pane -->
+                                    <div class="tab-pane fade  " id="register-2" role="tabpanel" aria-labelledby="register-tab-2">
+                                        <form action="/registar" method="POST">
+                                            <div class="form-group">
+                                                <label for="register-email-2"> Nome *</label>
+                                                <input type="text" class="form-control" id="nome" name="nome" required>
+                                            </div><!-- End .form-group -->
+                                            <div class="form-group">
+                                                <label for="register-email-2"> Email *</label>
+                                                <input type="email" class="form-control" id="register_email" name="register_email" required>
+                                            </div><!-- End .form-group -->
+                                            <div class="form-group">
+                                                <label for="register-password-2">Password *</label>
+                                                <input type="password" class="form-control" id="register_password" name="register_password" required>
+                                            </div><!-- End .form-group -->
+                                            <div class="form-group">
+                                                <label for="singin-password-2">Confirmar Password *</label>
+                                                <input type="password" class="form-control" id="register_password2" name="register_password2" required>
+                                            </div><!-- End .form-group -->
+                                            
+    
+    
+                                            <div class="form-footer">
+                                                <button type="submit" class="btn btn-outline-primary-2">
+                                                    <span>Registar</span>
+                                                    <i class="icon-long-arrow-right"></i>
+                                                </button>
+                            <% } %>
+
+							    		</div><!-- End .form-footer -->
+							    	</form>
+							    	
+							    </div><!-- .End .tab-pane -->
+							</div><!-- End .tab-content -->
+						</div><!-- End .form-tab -->
+            		</div><!-- End .form-box -->
+            	</div><!-- End .container -->
+            </div><!-- End .login-page section-bg -->
+        </main><!-- End .main -->
+        <footer class="footer footer-2">
+           
+
+            <div class="footer-middle border-0">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-sm-12 col-lg-6">
+                            <div class="widget widget-about">
+                                <!-- Aqui1-->
+                                <img src="public/images/demos/demo-13/logo2.png" alt="SnapbBuy Logo" width="200" height="100">
+
+                                <!--Aqui1-->
+                                <div class="widget-about-info">
+                                    <div class="row">
+                                        <div class="col-sm-6 col-md-4">
+                                            <span class="widget-about-title">Tem uma duvida?</span>
+                                            <a href="tel:+351960208974">+351960208974</a>
+                                        </div><!-- End .col-sm-6 -->
+                                      
+                                    </div><!-- End .row -->
+                                </div><!-- End .widget-about-info -->
+                            </div><!-- End .widget about-widget -->
+                        </div><!-- End .col-sm-12 col-lg-3 -->
+                        <!-- Aqui 3-->
+                        <div class="col-sm-4 col-lg-2">
+                         
+                        </div><!-- End .col-sm-64 col-lg-3 -->
+                        <div class="col-sm-4 col-lg-2">
+                            <div class="widget">
+                                <h4 class="widget-title">Informação</h4><!-- End .widget-title -->
+
+                                <ul class="widget-list">
+                                    <li><a href="/sobre">Sobre Nós</a></li>
+                                    <li><a href="/">Pagina Principal</a></li>
+                                    <li><a href="/faq">FAQ</a></li>
+                                    <li><a href="/registar">Entrar/Registar</a></li>
+                                </ul><!-- End .widget-list -->
+                            </div><!-- End .widget -->
+                        </div><!-- End .col-sm-4 col-lg-3 -->
+
+                        <div class="col-sm-4 col-lg-2">
+                            <div class="widget">
+                                <h4 class="widget-title">Apoio ao Cliente</h4><!-- End .widget-title -->
+
+                                <ul class="widget-list">
+                                    <li><a href="/faq#faqPagamentos">Metedos de pagamento</a></li>
+                                    <li><a href="/faq#faqEncmPergunta3">Politica de devoluções</a></li>
+                                    <li><a href="/faq#faqEncmPergunta3">Devoluções</a></li>
+                                    <li><a href="/faq#faqEncomendas">Encomendas</a></li>
+                                    <li><a href="/faq#faqInfoPergunta3">Taxas</a></li>
+                                    <li><a href="/faq#faqEncmPergunta2">Atrasos</a></li>
+                                </ul><!-- End .widget-list -->
+                            </div><!-- End .widget -->
+                        </div><!-- End .col-sm-4 col-lg-3 -->
+
+                        
+                    </div><!-- End .row -->
+                </div><!-- End .container -->
+            </div><!-- End .footer-middle -->
+                        <!-- Aqui 3-->
+
+            <div class="footer-bottom">
+                <div class="container" style="display:flex;justify-content: center;">
+                    <p class="footer-copyright">Copyright © 2024 SnapBuy. Todos os direitos reservados.</p><!-- End .footer-copyright -->
+                </div><!-- End .container -->
+            </div><!-- End .footer-bottom -->
+        </footer><!-- End .footer -->
+    </div><!-- End .page-wrapper -->
+    <button id="scroll-top" title="Back to Top"><i class="icon-arrow-up"></i></button>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu-overlay"></div><!-- End .mobil-menu-overlay -->
+
+    <div class="mobile-menu-container mobile-menu-light">
+        <div class="mobile-menu-wrapper">
+            <span class="mobile-menu-close"><i class="icon-close"></i></span>
+            
+
+            <ul class="nav nav-pills-mobile nav-border-anim" role="tablist">
+                <li class="nav-item">
+                    <a class="nav-link active" id="mobile-menu-link" data-toggle="tab" href="#mobile-menu-tab" role="tab" aria-controls="mobile-menu-tab" aria-selected="true">Menu</a>
+                </li>
+            </ul>
+
+            <div class="tab-content">
+                <div class="tab-pane fade show active" id="mobile-menu-tab" role="tabpanel" aria-labelledby="mobile-menu-link">
+                    <nav class="mobile-nav">
+                        <ul class="mobile-menu">
+                            <li>
+                                <a href="/faq">FAQs</a>
+
+                            </li>
+                            <li>
+                                <a href="/sobre">Sobre Nós</a>
+
+                            </li>
+                           
+                        </ul><!-- End .menu -->
+                    </nav><!-- End .mobile-nav -->
+                </div><!-- .End .tab-pane -->
+            </div><!-- End .tab-content -->
+
+        </div><!-- End .mobile-menu-wrapper -->
+    </div><!-- End .mobile-menu-container -->
+
+    
+
+    <!-- Plugins JS File -->
+    <script src="public/js/jquery.min.js"></script>
+    <script src="public/js/bootstrap.bundle.min.js"></script>
+    <script src="public/js/jquery.hoverIntent.min.js"></script>
+    <script src="public/js/jquery.waypoints.min.js"></script>
+    <script src="public//js/superfish.min.js"></script>
+    <script src="public/js/owl.carousel.min.js"></script>
+    <!-- Main JS File -->
+    <script src="public/js/main.js"></script>
+</body>
+
+
+<!-- molla/login.html  22 Nov 2019 10:04:03 GMT -->
+</html>
